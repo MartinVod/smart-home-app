@@ -1,0 +1,59 @@
+
+.App{
+  text-align: center;
+  border: 5px solid #ffffff;
+  box-shadow: 2px 2px 0px hsla(0, 50%, 50%, 0.2);
+  background: radial-gradient(circle, rgba(95,93,189,1) 0%, rgba(94,135,184,1) 50%, rgba(131,206,224,1) 100%);
+  margin:  6% auto;
+}
+
+.btn{
+  border-radius: 0;
+  letter-spacing: 1px;
+  z-index: 1;
+  position: relative;
+  transition: all 0.4s ease 0s;
+  padding: 30px 15px;
+  border: 1px solid darkblue;
+}
+.btn:before,
+.btn:after{
+  content: "";
+  width: 0;
+  height: 3px;
+  background: #ffffff;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  transition: all 0.4s ease 0s;
+}
+.btn:after{
+  top: auto;
+  left: auto;
+  bottom: 5px;
+  right: 5px;
+}
+.btn:hover:before,
+.btn:hover:after{
+  width: 50%;
+}
+.btn.red{
+  color: #ffffff;
+  border: 1px solid #5f5dbd;
+  font-size: 24px;
+}
+.btn.red:hover{
+  background: #5f5dbd;
+  color: rgb(0, 238, 255);
+}
+
+.app-header{
+  text-decoration: underline;
+}
+
+ul{
+  list-style: none;
+  margin: none;
+  text-align: left;
+}
+

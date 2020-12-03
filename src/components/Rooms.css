@@ -1,0 +1,94 @@
+.roomBox{
+    color: #606060;
+    padding: 0 10px 60px;
+    background-color: #F9A11C;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    margin: 80px 7px 30px 15px;
+    position: relative;
+    min-height: 100px;
+    box-shadow: 2px 3px 2px hsla(100, 0%, 0%, 0.25);
+    min-width: 200px;
+ }
+ .roomBox .room-content{
+   text-align: center;
+    padding: 15px 20px 30px;
+    margin-top: -80px;
+    border-radius: 25px;
+    background-color: rgb(235, 245, 255);
+    position: relative;
+    transition:all 0.3s;
+    min-height: 230px;
+    max-height: 230px;
+    min-width: 180px;
+
+ }
+ .roomBox .room-content:hover{
+   box-shadow: 0 0 20px -5px #000;
+ }
+ .roomBox .room-content:after{
+    content: '';
+    height: 50px;
+    width: 50px;
+    border: 25px solid transparent;
+    border-top: 25px solid #fff;
+    transform:translateX(-50%);
+    position: absolute;
+    bottom: -50px;
+    left: 50%;
+}
+.roomBox .room-icon{
+    display: inline-block;
+    margin-bottom: 10px;
+
+    transition: all 0.3s ease 0s;
+}
+.roomBox .room-icon img{
+    max-height: 80px;
+    width: auto;
+}
+.roomBox:hover .room-icon{
+    transform:rotateX(360deg);
+}
+.roomBox .room-title{
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin:0 0 10px;
+}
+.roomBox .room-description{
+    font-size: 15px;
+    line-height: 25px;
+    margin: 0;
+}
+.roomBox .goToRoom{
+    display: block;
+    width: 60%;
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-align: center;
+    color: #fff;
+    padding: 10px 0;
+    background-color: #000000;
+    border-radius: 15px;
+    transform:translateX(-50%);
+    transition:all 0.3s ease 0s;
+    position: absolute;
+    left: 50%;
+    bottom: -20px;
+}
+.roomBox .goToRoom:hover{
+    color: white;
+    text-decoration: none;
+    letter-spacing: 2px;
+    box-shadow: 0 0 10px #000;
+}
+
+@media only screen and (max-width:990px){
+    .roomBox{ margin-bottom: 60px; }
+    .roomBox .room-content{padding: 20px 15px 30px;}
+}
+@media only screen and (max-width:767px){
+    .roomBox{ margin-bottom: 130px; }
+}
