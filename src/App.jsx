@@ -10,22 +10,32 @@ import Main from './components/Main';
 function App() {
 
 const [roomList, setRoomList] = useState([
-  {id: '1',type: 'Bath room',name: 'Main Bath',color:'lightblue', appl: [{appName:'Water boiler',appState: false}]},
-  {id: '2', type: 'Kitchen',name: 'Kitchen',color:'grey', appl: [{appName:'Lamp',appState: false},{appName:'Lamp',appState: false}]}
+  {id: 1,type: 'Bath room',name: 'Main Bath',color:'lightblue', appl: [{id: 1,appName:'Water boiler',appState: false}]},
+  {id: 2, type: 'Kitchen',name: 'Kitchen',color:'grey', appl: [{id: 1,appName:'Lamp',appState: false},{id: 2,appName:'Lamp',appState: false}]}
 ]);
+
+/*-----setting maximum id for new array input -------*/
+const findId = (arr) =>{
+  if(arr.length === 0){
+      return 1;
+    }else{
+      let newArr = arr.sort((a,b)=>{return a.id - b.id});
+      return(newArr[newArr.length-1].id+1);
+    }
+  }
 
 /*---- add room function ----*/
 const addRoom = (roomType,roomName,roomColor,isValid)=>{
   if(isValid){
-  setRoomList([...roomList,{id: (parseInt(roomList[roomList.length-1].id)+1).toString(),type: roomType,name: roomName,color: roomColor, appl: []}]);
+  setRoomList([...roomList,{id: findId(roomList) ,type: roomType,name: roomName,color: roomColor, appl: []}]);
   }
 }
 
 /*---- routing all the rooms in the room list ----*/
 const routeRooms = (room) =>{
-  let pathName = '/room-'+room.id;
+  let pathName = '/room-'+(room.id).toString();
   return(
-    <Route exact path={pathName} component={()=><Room room={room} addAppl={addApplience} toggleApp={toggleApp} />} />
+    <Route exact path={pathName} component={()=><Room room={room} addAppl={addApplience} toggleApp={toggleApp} deleteRoom={deleteRoom} deleteAppl={deleteAppl}/>} />
   )
 }
 
@@ -33,8 +43,7 @@ const routeRooms = (room) =>{
 const addApplience = (room, applienceName,toAdd) =>{
 if(toAdd){
     let roomIndex = roomList.indexOf(room);
-    console.log(roomIndex);
-    room.appl.push({appName: applienceName,appState: false});
+    room.appl.push({id: findId(room.appl) ,appName: applienceName,appState: false});
     let updatedRooms = roomList;
     updatedRooms[roomIndex] = room;
     setRoomList(updatedRooms);
@@ -53,6 +62,28 @@ const toggleApp = (room,appIndex)=>{
   else{
     roomList[roomIndex].appl[appIndex].appState = true;
   }
+}
+
+/*------------- delete room -----------------*/
+const deleteRoom = (roomid)=>{
+  let index = roomList.findIndex((room)=>{
+    return(room.id === roomid)
+  });
+  let roomArr = roomList;
+  roomArr.splice(index,1);
+  setRoomList(roomArr);
+}
+
+/*----delete appliance -------*/
+const deleteAppl = (appIndex,roomIndex,app)=>{
+  let updatedRoomApp = roomList.filter((room)=>room.id === roomIndex);
+  console.log(updatedRoomApp)
+  console.log(app)
+  let appliancePosition = updatedRoomApp[0].appl.indexOf(app);
+  updatedRoomApp[0].appl.splice(appliancePosition,1);
+  let currentRooms = roomList;
+  currentRooms.splice(roomIndex,1,updatedRoomApp[0]);
+  setRoomList(currentRooms);
 }
 
   return (

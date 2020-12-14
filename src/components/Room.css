@@ -1,4 +1,16 @@
+.links{ 
+    color: white;
+}
 
+.links:hover{ 
+    color: rgb(0, 238, 255);
+    text-decoration: none;
+}
+.showRoomDiv .btn-danger{
+    position: absolute;
+    float: right;
+    margin-left: 10%;
+}
 
 .app-box{
     background-color: #000;
@@ -63,6 +75,9 @@
     margin: 0;
 }
 
+.app-delete{ 
+    color: #fff;
+}
 
 @media only screen and (max-width:990px){
     .app-box { margin: 0 0 30px; }

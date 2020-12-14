@@ -11,7 +11,7 @@ export default function Rooms(props) {
 
     const appList = (app) => {
         return(
-            <li>{app.appName}</li>
+            <li className='roomAppli'>{app.appName}</li>
         )
     }
 
@@ -27,7 +27,7 @@ export default function Rooms(props) {
                         imgPath = kitchen;
                     }
 
-        let roomid = '/room-'+room.id;
+        let roomid = '/room-'+room.id.toString();
             return(
                 <div className='col-md-3' >
                     <div className='roomBox' style={{backgroundColor: room.color}}>
@@ -40,7 +40,7 @@ export default function Rooms(props) {
                             {room.appl.map(appList)}
                             </ul>
                         </div>
-                        <Link to={roomid}><button className='goToRoom'>Go to room</button></Link>
+                        <Link to={roomid}><button className='goToRoom'>Go to room #+{room.id}</button></Link>
                     </div>
                 </div>
             )
@@ -49,7 +49,7 @@ export default function Rooms(props) {
 
 
     return (
-        <div className='row'>
+        <div className='row roomsDiv'>
             {props.rooms.map(showRooms)}
         </div>
     )

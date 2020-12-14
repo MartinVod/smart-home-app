@@ -14,13 +14,12 @@ export default function Room(props) {
     const [showForm, setShowForm] = useState('none');
     const [errorStr,setErrorStr] = useState('');
     const [toAdd, setToAdd] = useState(false);
-
-    let roomURL = 'room-'+props.room.id;
+    const [roomURL, setRoomURL] = useState('/room-'+props.room.id.toString());
 
 
     /*------show all the appliances in the room------*/
     /*------ match img to appliance-----*/
-    const showAppl = (appl) =>{
+    const showAppl = (appl,ind) =>{
         let imgPath;
         if(appl.appName === 'Stereo system'){
             imgPath=stereo;
@@ -45,6 +44,7 @@ export default function Room(props) {
                         <span>Status: {appl.sppState ? 'On' : 'Off'}  </span><span>  <Link ><button onClick={()=>{props.toggleApp(props.room,props.room.appl.indexOf(appl))}}>Turn On/Off</button></Link></span>
                     </div>
                 </div>
+                <span className='app-delete'><Link to={roomURL} onClick={()=>{props.deleteAppl(appl.id,props.room.id,appl)}}> Delete </Link></span>
             </div>
         </li>
         )
@@ -98,8 +98,8 @@ const isValid = (element) =>{
 
 
     return (
-    <div>
-        <h1>Room name: {props.room.name}</h1>
+    <div className='showRoomDiv'>
+        <h1>Room name: {props.room.name} <button class="btn btn-danger" onClick={() =>{props.deleteRoom(props.room.id)}}><Link className='links' to='/'>Delete this Room</Link></button></h1>
         <h2>Room type: {props.room.type}</h2>
         <ul className='row' id='appRow'>
            

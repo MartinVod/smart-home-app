@@ -23,7 +23,7 @@ export default function AddRoom(props) {
         </select><br />
         
         <label className='sr-only'>Room Name</label>
-        <input  className='form-control' id='rmName' maxLength='5' type='text' placeholder='name' onChange={(e)=>{setRoomName(e.target.value)}} /><br />
+        <input  className='form-control' id='rmName' type='text' placeholder='name' onChange={(e)=>{setRoomName(e.target.value)}} /><br />
 
         <label>Choose Color:</label>
         <input  className='form-control' id='rmClr' type='color' placeholder='color' onChange={(e)=>{setRoomColor(e.target.value)}} /><br />

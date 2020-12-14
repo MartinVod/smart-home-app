@@ -1,3 +1,7 @@
+.roomsDiv{ 
+    display:flex;
+}
+
 .roomBox{
     color: #606060;
     padding: 0 10px 60px;
@@ -9,6 +13,8 @@
     min-height: 100px;
     box-shadow: 2px 3px 2px hsla(100, 0%, 0%, 0.25);
     min-width: 200px;
+    flex: 0 1 auto;
+    justify-content: center;
  }
  .roomBox .room-content{
    text-align: center;
@@ -19,7 +25,6 @@
     position: relative;
     transition:all 0.3s;
     min-height: 230px;
-    max-height: 230px;
     min-width: 180px;
 
  }
@@ -60,6 +65,13 @@
     font-size: 15px;
     line-height: 25px;
     margin: 0;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.roomBox .room-description .roomAppli{
+    flex: 0 1 auto;
 }
 .roomBox .goToRoom{
     display: block;
