@@ -2,7 +2,7 @@
   "name": "smarthome",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://MartinVod.github.io/smarthome",
+  "homepage": "https://MartinVod.github.io/smart-home-app",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.1.2",
