@@ -4,6 +4,7 @@ import './Rooms.css';
 import kitchen from './../imgs/kitchen.png';
 import bathroom from './../imgs/bathroom.png';
 import bedroom from './../imgs/bedroom.png'
+import './../App.css'
 
 export default function Rooms(props) {
 
@@ -40,7 +41,7 @@ export default function Rooms(props) {
                             {room.appl.map(appList)}
                             </ul>
                         </div>
-                        <Link className='btn' to={roomid}><button className='goToRoom'>Go to room #+{room.id}</button></Link>
+                        <Link to={roomid}><button className='goToRoom'>Go to room #+{room.id}</button></Link>
                     </div>
                 </div>
             )
