@@ -41,7 +41,7 @@ export default function Rooms(props) {
                             {room.appl.map(appList)}
                             </ul>
                         </div>
-                        <Link to={roomid}><button className='goToRoom'>Go to room #+{room.id}</button></Link>
+                        <Link to={roomid}><button className='goToRoom'>Go to room #{room.id}</button></Link>
                     </div>
                 </div>
             )
