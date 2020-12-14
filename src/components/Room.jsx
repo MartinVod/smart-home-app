@@ -41,10 +41,10 @@ export default function Room(props) {
                     </div>
                     <div className='app-inner-content'>
                         <h3 className='app-title'>{appl.appName}</h3>
-                        <span>Status: {appl.sppState ? 'On' : 'Off'}  </span><span>  <Link ><button onClick={()=>{props.toggleApp(props.room,props.room.appl.indexOf(appl))}}>Turn On/Off</button></Link></span>
+                        <span>Status: {appl.sppState ? 'On' : 'Off'}  </span><span>  <Link className='btn'><button onClick={()=>{props.toggleApp(props.room,props.room.appl.indexOf(appl))}}>Turn On/Off</button></Link></span>
                     </div>
                 </div>
-                <span className='app-delete'><Link to={roomURL} onClick={()=>{props.deleteAppl(appl.id,props.room.id,appl)}}> Delete </Link></span>
+                <span className='app-delete'><Link to={roomURL} className='btn' onClick={()=>{props.deleteAppl(appl.id,props.room.id,appl)}}> Delete </Link></span>
             </div>
         </li>
         )
@@ -99,7 +99,7 @@ const isValid = (element) =>{
 
     return (
     <div className='showRoomDiv'>
-        <h1>Room name: {props.room.name} <button class="btn btn-danger" onClick={() =>{props.deleteRoom(props.room.id)}}><Link className='links' to='/'>Delete this Room</Link></button></h1>
+        <h1>Room name: {props.room.name} <button class="btn btn-danger" onClick={() =>{props.deleteRoom(props.room.id)}}><Link className='links btn' to='/'>Delete this Room</Link></button></h1>
         <h2>Room type: {props.room.type}</h2>
         <ul className='row' id='appRow'>
            
@@ -118,7 +118,7 @@ const isValid = (element) =>{
             <small className='' style={toAdd ? {color: 'white'} : {color: 'red'}}>{errorStr}</small><br />
             <Link to={roomURL} ><button type='submit' className='btn btn-md red' onClick={()=>{props.addAppl(props.room,document.getElementById('applType').value,toAdd)}}>Submit applience</button></Link>
         </div>
-            <Link to='/'><button className='btn btn-sm'>back</button></Link><button type='submit' className='btn red' onClick={toggleForm}>{btnStr}</button>
+            <Link to='/' className='btn'><button className='btn btn-sm'>back</button></Link><button type='submit' className='btn red' onClick={toggleForm}>{btnStr}</button>
         
         
     </div>

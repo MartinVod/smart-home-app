@@ -28,7 +28,7 @@ export default function AddRoom(props) {
         <label>Choose Color:</label>
         <input  className='form-control' id='rmClr' type='color' placeholder='color' onChange={(e)=>{setRoomColor(e.target.value)}} /><br />
     
-        <Link to='/'><button className='btn btn-sm'>back</button></Link><Link to='/'><button className='btn btn-lg' onClick={()=>{
+        <Link to='/' className='btn'><button className='btn btn-sm'>back</button></Link><Link to='/' className='btn'><button className='btn btn-lg' onClick={()=>{
             let isValid=true;
             if(document.getElementById('rmType').value === 'Choose room type'){
                 setToAdd(false);
